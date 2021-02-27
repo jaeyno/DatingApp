@@ -1,4 +1,6 @@
+import { MembersService } from './../_services/members.service';
 import { Component, OnInit } from '@angular/core';
+import { Member } from '../_model/member';
 
 @Component({
   selector: 'app-lists',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListsComponent implements OnInit {
 
-  constructor() { }
+  members: Partial<Member[]>;
+  predicate = 'liked';
+
+  constructor(private memberService: MembersService) { }
 
   ngOnInit(): void {
+    this.loadLikes();
   }
 
+  loadLikes() {
+    this.memberService.getLikes(this.predicate).subscribe(response => {
+      this.members = response;
+    })
+  }
 }
