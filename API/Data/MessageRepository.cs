@@ -22,7 +22,7 @@ namespace API.Data
 
         public void DeleteMessage(Message message)
         {
-            _context.Messages.Remove(message)
+            _context.Messages.Remove(message);
         }
 
         public async Task<Message> GetMessage(int id)
