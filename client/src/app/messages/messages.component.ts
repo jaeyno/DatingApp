@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  messages: Message[];
+  messages: Message[] = [];
   pagination: Pagination;
   container = 'Inbox';
   pageNumber = 1;
